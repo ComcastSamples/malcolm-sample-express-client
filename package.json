@@ -1,0 +1,31 @@
+{
+	"name": "malcolm-sample-express-client",
+	"version": "1.0.1",
+	"description": "Example of using malcolm with expressjs",
+	"main": "index.js",
+	
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Comcast/malcolm-sample-express-client.git"
+	},
+
+	"author": "Mike Fine <mike_fine@cable.comcast.com>",
+	"license": "Apache 2.0",
+
+	"dependencies": {
+		"underscore-contrib": "~0.3.0",
+		"express": "~4.15.3",
+		"body-parser": "~1.17.2",
+		"malcolm": "git+https://michaelcfine@github.com/Comcast/malcolm.git"
+	},
+
+	"devDependencies": {
+		"mocha": "~3.4.2",
+		"chai": "~4.0.2"
+	},
+
+	"scripts": {
+		"start": "node ./index.js",
+		"test": "./node_modules/.bin/mocha"
+	}
+}

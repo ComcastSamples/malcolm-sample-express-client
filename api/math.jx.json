@@ -1,0 +1,25 @@
+{
+	"/version": {
+		"get": {
+			"fcn": "controllers/math.js:getVersionNumber"
+		}
+	},
+
+	"/addallnumbers_get": {
+		"get": {
+			"fcn": "controllers/math.js:addAllNumbers"
+		}
+	},
+
+	"/addallnumbers_post": {
+		"post": {
+			"fcn": "controllers/math.js:addAllNumbers"
+		}
+	},
+
+	"/generaterandomnumber": {
+		"get": {
+			"fcn": "controllers/math.js:generateRandomNumber"
+		}
+	}
+}

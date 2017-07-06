@@ -1,0 +1,145 @@
+#%RAML 0.8
+
+title: Sample expressjs app using malcolm
+baseUri: http://api.somewhere.com/api/{version}
+version: v1
+
+/version:
+    description: |
+        Get version info for this app
+    securedBy: [ null ]
+    get:
+        description: |
+            Returns version number and additional details of this API
+        responses:
+            200:
+                description: Success
+                body:
+                    application/json:
+                        schema: |
+                            {
+                                "$schema": "http://json-schema.org/draft-04/schema",
+                                "type": "object",
+                                "properties": {
+                                     "name": {
+                                            "description": "API Name",
+                                            "type": "string"
+                                     },
+                                     "version": {
+                                            "description": "API Version",
+                                            "type": "string"
+                                     }
+                                 }
+                            }
+
+                        example: |
+                            {
+                                 "name": "Hello World Movie API",
+                                 "version": "0.1"
+                            }
+
+/addallnumbers_get:
+    description: |
+        Pass list of numbers to get their sum
+    securedBy: [ null ]
+    get:
+        queryParameters:
+            list_of_numbers:
+                description: list of numbers to sum (must be a valid json string)
+                example: "[1, 2, 3]"
+                required: true
+                type: string
+        responses:
+            200:
+                description: Success
+                body:
+                    application/json:
+                        schema: |
+                            {
+                                "$schema": "http://json-schema.org/draft-04/schema",
+                                "type": "object",
+                                "properties": {
+                                     "sum": {
+                                            "description": "Resulting sum of numbers",
+                                            "type": "integer"
+                                     }
+                                 }
+                            }
+
+                        example: |
+                            {
+                                 "sum": 6
+                            }
+/addallnumbers_post:
+    description: |
+        Pass list of numbers to get their sum
+    securedBy: [ null ]
+    post:
+        description: |
+            Pass list of numbers to get their sum using POST and a required access token
+        queryParameters:
+            access_token:
+                description: "The access token provided by the authentication application"
+                example: AABBCCDD
+                required: true
+                type: string
+            list_of_numbers:
+                description: list of numbers to sum (must be a valid json string)
+                example: "[1, 2, 3]"
+                required: true
+                type: string
+        responses:
+            200:
+                description: Success
+                body:
+                    application/json:
+                        schema: |
+                            {
+                                "$schema": "http://json-schema.org/draft-04/schema",
+                                "type": "object",
+                                "properties": {
+                                     "sum": {
+                                            "description": "Resulting sum of numbers",
+                                            "type": "integer"
+                                     }
+                                 }
+                            }
+
+                        example: |
+                            {
+                                 "sum": 6
+                            }
+
+/generaterandomnumber:
+    description: |
+        Generates random number between zero and the ceiling. default ceiling value is 100
+    securedBy: [ null ]
+    get:
+        queryParameters:
+            ceiling:
+                description: value for rance ceiling to generate random number
+                example: "999"
+                default: 100
+                required: false
+                type: integer
+        responses:
+            200:
+                description: Success
+                body:
+                    application/json:
+                        schema: |
+                            {
+                                "$schema": "http://json-schema.org/draft-04/schema",
+                                "type": "object",
+                                "properties": {
+                                     "random_number": {
+                                            "description": "A random number between zero and specified ceiling",
+                                            "type": "integer"
+                                     }
+                                 }
+                            }
+
+                        example: |
+                            {
+                                 "random_number": 44
+                            }
