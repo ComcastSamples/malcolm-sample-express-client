@@ -1,8 +1,0 @@
-Notice
-========
-
-**malcolm**
-
-Copyright 2017- Comcast Cable Communications Management, LLC
-
-This product includes software developed at Comcast (http://www.comcast.com/).
